@@ -5,3 +5,5 @@
 ![header](https://capsule-render.vercel.app/api?type=venom&color=auto&height=200&section=header&text=HELLO%20Web&fontSize=90)
 
 ![Static Badge](https://img.shields.io/badge/any__text-you_blue)
+
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=sooooooool)](https://github.com/anuraghazra/github-readme-stats)
