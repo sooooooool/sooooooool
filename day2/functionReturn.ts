@@ -7,3 +7,9 @@ function runMore(distance: number): number {
 // function runMore(distance: number): void; //이건 아예 성립이 안돼.
 
 console.log(runMore(20));
+
+function runMore2(distance: number) {
+  console.log(distance);
+}
+
+console.log(runMore2(20));
