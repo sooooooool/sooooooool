@@ -5,6 +5,7 @@ export default function DispatchEvent() {
       .getElementById("root")
       ?.dispatchEvent(new Event("click", { bubbles: true }));
   };
+
   const onCallClick = () => {
     console.log("onCallClick");
     document.getElementById("root")?.click();
@@ -13,7 +14,7 @@ export default function DispatchEvent() {
   return (
     <div>
       <p>DispatchEvent</p>
-      <button onClick={onCallDispatchEvent}>Dispatch Event</button>
+      <button onClick={onCallDispatchEvent}>call dispatchEvent</button>
       <button onClick={onCallClick}>call click</button>
     </div>
   );

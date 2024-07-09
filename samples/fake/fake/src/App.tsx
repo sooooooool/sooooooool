@@ -124,37 +124,30 @@
 //   );
 // }
 
-import AvatarTest from "./pages/AvatarTest";
-import BackgroundImageTest from "./pages/BackgroundImageTest";
-import BorderTest from "./pages/BorderTest";
-import DisplayNoneTest from "./pages/DisplayNoneTest";
-import DisplayTest from "./pages/DisplayTest";
-import DivTest from "./pages/DivTest";
-import HeightTest from "./pages/HeightTest";
-import ImageTest from "./pages/ImageTest";
-import MarginTest from "./pages/MarginTest";
-import OverlayTest from "./pages/OverlayTest";
-import PaddingTest from "./pages/PaddingTest";
-import PositionTest from "./pages/PositionTest";
-import ViewportTest from "./pages/ViewportTest";
+import DirectionTest from "./pages/DirectionTest";
+import WrapTest from "./pages/WrapTest";
+import MinMaxTest from "./pages/MinMaxTest";
+import JustifyCenterTest from "./pages/JustifyCenterTest";
+import AlignTest from "./pages/AlignTest";
+import UserContainer from "./pages/UserContainer";
+import CardContainer from "./pages/CardContainer";
+import ButtonTest from "./pages/ButtonTest";
+import InputTest from "./pages/InputTest";
+import ModalTest from "./pages/ModalTest";
 
-function App() {
+export default function App() {
   return (
     <main>
-      <DivTest />
-      <ViewportTest />
-      <HeightTest />
-      <PaddingTest />
-      <MarginTest />
-      <ImageTest />
-      <BackgroundImageTest />
-      <DisplayTest />
-      <DisplayNoneTest />
-      <AvatarTest />
-      <BorderTest />
-      <PositionTest />
-      <OverlayTest />
+      {/* <CardContainer />
+      <UserContainer />
+      <AlignTest />
+      <JustifyCenterTest />
+      <MinMaxTest />
+      <WrapTest /> */}
+      {/* <DirectionTest /> */}
+      <ButtonTest />
+      <InputTest />
+      <ModalTest />
     </main>
   );
 }
-export default App;

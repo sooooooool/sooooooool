@@ -7,7 +7,7 @@ export default function FileInput() {
       for (let i = 0; i < files.length; i++) {
         const file: File | null = files.item(i);
         console.log(`file[${i}]`, file);
-      } //for (let i는 초기값; 조건식; 증감식)
+      }
     }
   };
 

@@ -10,7 +10,7 @@ export default function Color() {
           type="email"
           className="text-gray-900 border-sky-200 border-4"
         ></input>
-        <p className="text-rose-300">This field is required</p>
+        <p className="text-rose-500">This field is required</p>
       </div>
     </div>
   );

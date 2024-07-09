@@ -1,7 +1,7 @@
 import type { ChangeEvent } from "react";
 
 export default function OnChange() {
-  const OnChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
+  const onChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
     e.stopPropagation();
     e.preventDefault();
     console.log("onChangeValue", e.target.value);
@@ -23,8 +23,8 @@ export default function OnChange() {
       <div>
         <input
           type="text"
-          onChange={OnChangeValue}
-          placeholder="enter some texts"
+          onChange={onChangeValue}
+          placeholder="type some test"
           defaultValue="Hello"
         />
         <input type="checkbox" onChange={onChangeChecked} defaultChecked />
