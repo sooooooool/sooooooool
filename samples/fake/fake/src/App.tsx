@@ -138,13 +138,13 @@ import ModalTest from "./pages/ModalTest";
 export default function App() {
   return (
     <main>
-      {/* <CardContainer />
+      <CardContainer />
       <UserContainer />
       <AlignTest />
       <JustifyCenterTest />
       <MinMaxTest />
-      <WrapTest /> */}
-      {/* <DirectionTest /> */}
+      <WrapTest />
+      <DirectionTest />
       <ButtonTest />
       <InputTest />
       <ModalTest />
