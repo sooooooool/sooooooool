@@ -4,58 +4,54 @@ class User extends Sequelize.Model {
   static initiate(sequelize) {
     User.init(
       {
-        name: {
-          type: Sequelize.STRING(20),
-          // allowNull: false,
+        email: {
+          type: Sequelize.STRING(40),
+          allowNull: true,
           unique: true,
         },
         nick: {
           type: Sequelize.STRING(15),
-          // allowNull: false,
+          allowNull: false,
         },
-        email: {
-          type: Sequelize.STRING(40),
-          // allowNull: true,
-        },
-        snsId: {
-          type: Sequelize.STRING(20),
-          // allowNull: false,
+        password: {
+          type: Sequelize.STRING(100),
+          allowNull: true,
         },
         provider: {
-          type: Sequelize.STRING(20),
-          // allowNull: false,
+          type: Sequelize.ENUM("local", "kakao", "naver"),
+          allowNull: false,
+          defaultValue: "local",
         },
-        age: {
-          type: Sequelize.INTEGER.UNSIGNED,
-          // allowNull: false,
-        },
-        married: {
-          type: Sequelize.BOOLEAN,
-          // allowNull: false,
-        },
-        comment: {
-          type: Sequelize.TEXT,
-          // allowNul: false,
-        },
-        created_at: {
-          type: Sequelize.DATE,
-          // allowNull: false,
-          defaultValue: Sequelize.NOW,
+        snsId: {
+          type: Sequelize.STRING(100),
+          allowNull: true,
         },
       },
       {
         sequelize,
-        timestamps: false,
+        timestamps: true,
+        underscored: false,
         modelName: "User",
         tableName: "users",
-        paranoid: false,
+        paranoid: true,
         charset: "utf8",
         collate: "utf8_general_ci",
       }
     );
   }
+
   static associate(db) {
-    db.User.hasMany(db.Comment, { foreignKey: "commenter", sourceKey: "id" });
+    db.User.hasMany(db.Post);
+    db.User.belongsToMany(db.User, {
+      foreignKey: "followingId",
+      as: "Followers",
+      through: "Follow",
+    });
+    db.User.belongsToMany(db.User, {
+      foreignKey: "followerId",
+      as: "Followings",
+      through: "Follow",
+    });
   }
 }
 
