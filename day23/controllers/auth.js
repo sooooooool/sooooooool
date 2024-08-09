@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const passport = require("passport");
-const User = require("../models/user");
+const User = require("../models");
 
 exports.join = async (req, res, next) => {
   const { email, nick, password } = req.body;
@@ -20,6 +20,10 @@ exports.join = async (req, res, next) => {
     console.error(error);
     return next(error);
   }
+};
+
+exports.renderJoin = (req, res) => {
+  res.render("join", { title: "회원가입 - MyApp" });
 };
 
 exports.login = (req, res, next) => {

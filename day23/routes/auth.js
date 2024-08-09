@@ -12,11 +12,26 @@ router.use((req, res, next) => {
   next();
 });
 
-router.get("/join", isNotLoggedIn, join);
+// router.post("/join", isNotLoggedIn, join);
+router.get("/join", isNotLoggedIn, (req, res) => {
+  res.render("join", { title: "회원가입 - MyApp" });
+});
 
-router.get("/login", isNotLoggedIn, login);
+router.post("/login", isNotLoggedIn, login);
 
 router.get("/logout", isLoggedIn, logout);
+
+router.get(
+  "/login",
+  isNotLoggedIn,
+  passport.authenticate("local", {
+    failureRedirect: "/auth/login", // 로그인 실패 시 이동할 경로
+    failureFlash: true, // 실패 시 플래시 메시지 사용
+  }),
+  (req, res) => {
+    res.redirect("/"); // 로그인 성공 시 이동할 경로
+  }
+);
 
 router.get(
   "/kakao",

@@ -1,50 +1,42 @@
 //시퀄라이즈에 이케이케 들어간다...!
+const Sequelize = require("sequelize");
+const fs = require("fs");
+const path = require("path");
+const env = process.env.NODE_ENV || "development";
+const config = require("../config/config")[env];
 
-"use strict";
+const db = {};
+const sequelize = new Sequelize(
+  config.database,
+  config.username,
+  config.password,
+  config
+);
 
-var fs = require("fs");
-var path = require("path");
-var Sequelize = require("sequelize");
-var basename = path.basename(__filename);
-var env = process.env.NODE_ENV || "development";
-var config = require(__dirname + "/../config/config.json")[env];
-var db = {};
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
 
-if (config.use_env_variable) {
-  var sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  var sequelize = new Sequelize(
-    config.database,
-    config.username,
-    config.password,
-    config
-  );
-}
-
-fs.readdirSync(__dirname)
+const basename = path.basename(__filename);
+fs.readdirSync(__dirname) // 현재 폴더의 모든 파일을 조회
   .filter((file) => {
+    // 숨김 파일, index.js, js 확장자가 아닌 파일 필터링
     return (
-      file.indexOf(".") !== 0 &&
-      file !== basename &&
-      file.slice(-3) === ".js" &&
-      file.indexOf(".test.js") === -1
+      file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".js"
     );
   })
   .forEach((file) => {
-    var model = require(path.join(__dirname, file));
-    if (model && typeof model.initiate === "function") {
-      model.initiate(sequelize);
-      db[model.name] = model;
-    }
+    // 해당 파일의 모델 불러와서 init
+    const model = require(path.join(__dirname, file));
+    console.log(file, model.name);
+    db[model.name] = model;
+    model.initiate(sequelize);
   });
 
 Object.keys(db).forEach((modelName) => {
+  // associate 호출
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
 });
-
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
 
 module.exports = db;

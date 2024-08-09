@@ -1,7 +1,7 @@
 const passport = require("passport");
 const NaverStrategy = require("passport-naver").Strategy;
 
-const { User } = require("../models");
+const { User } = require("../models/user");
 
 module.exports = () => {
   passport.use(

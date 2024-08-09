@@ -23,7 +23,7 @@ class User extends Sequelize.Model {
           defaultValue: "local",
         },
         snsId: {
-          type: Sequelize.STRING(100),
+          type: Sequelize.STRING(30),
           allowNull: true,
         },
       },
