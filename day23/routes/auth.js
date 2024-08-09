@@ -61,7 +61,7 @@ router.get(
     failureRedirect: "/?loginError=네이버로그인 실패",
   }),
   (req, res) => {
-    res.redirect("/"); //성공 시에는 /로 이동
+    res.redirect("/"); //성공 시에는 /로 이동 //
   }
 );
 
