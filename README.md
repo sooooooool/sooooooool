@@ -5,8 +5,6 @@
 ![header](https://capsule-render.vercel.app/api?type=venom&color=auto&height=200&section=header&text=HELLO%20Web&fontSize=90)
 
 
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=sooooooool)](https://github.com/anuraghazra/github-readme-stats)
-
 
 ### 🙇 안녕하세요, FE Programmer로 성장해나가고 있는 솔입니다!
 
